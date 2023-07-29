@@ -1,7 +1,84 @@
+html {
+	height: 100%;
+}
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Roboto', sans-serif;
-	color: #333;
+	font-family: 'Inter', sans-serif;
+	color: #111;
 	background-color: #fff;
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	transition: opacity 0.2s ease;
+}
+#content {
+	background: #b0020223;
+	flex-grow: 1;
+	height: 100%;
+}
+#sidebar {
+	width: 320px;
+	background-color: #3333331d;
+	height: 100%;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+}
+#side-header {
+	height: 60px;
+	display: flex;
+	align-items: flex-end;
+}
+#side-header h2 {
+	margin: 0;
+	font-size: 1.6em;
+}
+#side-fields {
+	margin-top: 20px;
+}
+footer {
+	/* puts it at the end of the flex */
+	margin-top: auto;
+	font-size: 0.65em;
+	color: #7C7C7C;
+}
+footer a {
+	color: #6D78A7;
+	text-decoration: none;
+	font-weight: bold;
+}
+#side-fields > div {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+#side-fields label {
+	font-size: 0.8em;
+	margin-bottom: 5px;
+}
+#search-field, select {
+	height: 30px;
+	padding: 2px 12px;
+	border: none;
+	background: #D9D9D9;
+	border-radius: 30px;
+	box-sizing: border-box;
+	font-size: 0.85em;
+	font-weight: 500;
+	outline: none;
+	/* removes the arrow */
+
+	padding-right: 40px;
+	background-repeat: no-repeat;
+	background-position: calc(100% - 14px) center;
+	background-size: 15px;
+}
+#search-field {
+	background-image: url('icons/search.svg');
+}
+select {
+	appearance: none;
+	background-image: url('icons/down-arrow.svg');
 }
