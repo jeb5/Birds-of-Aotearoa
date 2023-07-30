@@ -1,24 +1,26 @@
 import { getBirdOTDDetails, conservationStatuses } from "./birds.js";
 
 export function getMainPageHTML() {
-  return `<header>
-		<img src="./icon.svg" alt="Birds of Aotearoa Kiwi Logo" />
-		<h1>Birds of Aotearoa</h1>
-	</header>
-	<main>
-		<section>
-		<div class="section-header">
-			<h3>Bird of the day</h3>
-			<hr />
-		</div>
-		${getBirdOTDHTML()}
-		</section>
-	</main>
+  return `<div id="welcome-page">
+		<header>
+			<img src="./icon.svg" alt="Birds of Aotearoa Kiwi Logo" />
+			<h1>Birds of Aotearoa</h1>
+		</header>
+		<main class="main-page">
+			<section>
+			<div class="section-header">
+				<h3>Bird of the day</h3>
+				<hr />
+			</div>
+			${getBirdOTDHTML()}
+			</section>
+		</main>
+	</div>
 	`;
 }
 export function getBirdOTDHTML() {
   const birdOTDDetails = getBirdOTDDetails();
-  return `<div class="container>
+  return `<div class="container botd-container">
 		<div class="botd-bird-info">
 			<h4>${birdOTDDetails.primary_name}</h4>
 			<h5>${birdOTDDetails.english_name}</h5>
@@ -41,9 +43,11 @@ export function getBirdOTDHTML() {
 			</div>
 			${getConservationStatusTagHTML(birdOTDDetails.status)}
 		</div>
-		<img class="botd-bird-image" src="${
-      birdOTDDetails.photo.source
-    }" alt="Bird of the day: ${birdOTDDetails.primary_name}" />
+		<figure class="botd-bird-figure">
+			<img class="botd-bird-image" src="${
+        birdOTDDetails.photo.source
+      }" alt="Bird of the day: ${birdOTDDetails.primary_name}" />
+			<figcaption>Photo by ${birdOTDDetails.photo.credit}</figcaption>
 		</div>`;
 }
 

@@ -13,9 +13,13 @@ body {
 	transition: opacity 0.2s ease;
 }
 #content {
-	background: #b0020223;
 	flex-grow: 1;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 #sidebar {
 	width: 320px;
@@ -81,4 +85,29 @@ footer a {
 select {
 	appearance: none;
 	background-image: url('icons/down-arrow.svg');
+}
+.container {
+	background: #D9D9D9;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.conservation-status-tag {
+	border: 2px solid var(--tag-color);
+	border-radius: 5px;
+	display: inline-block;
+	padding: 0.5px 5px 0.5px 25px;
+	font-size: 0.85em;
+	position: relative;
+}
+.conservation-status-tag::after {
+	content: '';
+	position: absolute;
+	left: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 12px;
+	height: 12px;
+	background: var(--tag-color);
+	border-radius: 50%;
 }
