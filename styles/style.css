@@ -80,16 +80,16 @@ footer a {
 	background-size: 15px;
 }
 #search-field {
-	background-image: url('icons/search.svg');
+	background-image: url('../icons/search.svg');
 }
 select {
 	appearance: none;
-	background-image: url('icons/down-arrow.svg');
+	background-image: url('../icons/down-arrow.svg');
 }
 .container {
 	background: #D9D9D9;
 	border-radius: 10px;
-	padding: 20px;
+	overflow: clip;
 }
 
 .conservation-status-tag {
