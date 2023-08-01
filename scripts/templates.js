@@ -71,8 +71,10 @@ export function getBirdleHTML() {
           .fill(0)
           .map((_, i) => {
             const currBird = BIRDLE_DETAILS.birdleOptions[i];
-            return `<div class="birdle-choice" data-birdname="${currBird.primary_name}">
-							<img src="${currBird.photo.source}"/>
+            return `<div class="birdle-choice" data-birdname="${
+              currBird.primary_name
+            }">
+							<img src="${currBird.photo.source}" alt="Mystery Bird #${i + 1}"/>
 						</div>`;
           })
           .join("\n")}
@@ -100,7 +102,21 @@ export function getBirdleHTML() {
 	`;
 }
 
-export function getConservationStatusTagHTML(conservationStatus) {
+function getConservationStatusTagHTML(conservationStatus) {
   const csColor = conservationStatuses[conservationStatus];
   return `<div class="conservation-status-tag" style="--tag-color: ${csColor};">${conservationStatus}</div>`;
+}
+
+export function getSearchPageHTML() {
+  return `<div id="search-page">
+	</div>`;
+}
+
+export function getSideHeaderHeroHTML() {
+  return `
+		<div id="side-header-hero">
+			<img src="./icon.svg" alt="Birds of Aotearoa Kiwi Logo" />
+			<h2>Birds of Aotearoa</h2>
+		</div>
+	`;
 }
