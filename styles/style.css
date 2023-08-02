@@ -86,11 +86,6 @@ select {
 	appearance: none;
 	background-image: url('../icons/down-arrow.svg');
 }
-.container {
-	background: #D9D9D9;
-	border-radius: 10px;
-	overflow: clip;
-}
 
 .conservation-status-tag {
 	border: 2px solid var(--tag-color);
@@ -100,6 +95,19 @@ select {
 	font-size: 0.85em;
 	position: relative;
 }
+
+.conservation-status-tag.small-tag {
+	border: 1.5px solid var(--tag-color);
+	border-radius: 3px;
+	padding: 0.4px 3.5px 0.4px 18px;
+	font-size: 0.75em;
+}
+.conservation-status-tag.small-tag::after {
+	left: 3px;
+	width: 9px;
+	height: 9px;
+}
+
 .conservation-status-tag::after {
 	content: '';
 	position: absolute;

@@ -1,4 +1,5 @@
 import { BOTD_DETAILS, conservationStatuses, BIRDLE_DETAILS } from "./birds.js";
+import { formatWeight } from "./utils.js";
 
 export function getMainPageHTML() {
   return `<div id="welcome-page">
@@ -26,7 +27,7 @@ export function getMainPageHTML() {
 	`;
 }
 export function getBirdOTDHTML() {
-  return `<div class="container botd-container">
+  return `<div class="big-container botd-container">
 		<div class="botd-bird-info">
 			<h4>${BOTD_DETAILS.primary_name}</h4>
 			<h5>${BOTD_DETAILS.english_name}</h5>
@@ -54,11 +55,12 @@ export function getBirdOTDHTML() {
         BOTD_DETAILS.photo.source
       }" alt="Bird of the day: ${BOTD_DETAILS.primary_name}" />
 			<figcaption>Photo by ${BOTD_DETAILS.photo.credit}</figcaption>
+			</figure>
 		</div>`;
 }
 
 export function getBirdleHTML() {
-  return `<div id="birdle-container" class="container">
+  return `<div id="birdle-container" class="big-container">
 		<div id="birdle-top">
 			<div id="birdle-top-bar">
 				<h3 id="birdle-prompt">Pick the <strong>${
@@ -102,13 +104,16 @@ export function getBirdleHTML() {
 	`;
 }
 
-function getConservationStatusTagHTML(conservationStatus) {
+function getConservationStatusTagHTML(conservationStatus, small = false) {
   const csColor = conservationStatuses[conservationStatus];
-  return `<div class="conservation-status-tag" style="--tag-color: ${csColor};">${conservationStatus}</div>`;
+  return `<div class="conservation-status-tag${
+    small ? " small-tag" : ""
+  }" style="--tag-color: ${csColor};">${conservationStatus}</div>`;
 }
 
 export function getSearchPageHTML() {
   return `<div id="search-page">
+	<main id="gallery"></div>
 	</div>`;
 }
 
@@ -119,4 +124,46 @@ export function getSideHeaderHeroHTML() {
 			<h2>Birds of Aotearoa</h2>
 		</div>
 	`;
+}
+
+export function getGalleryHTML(filteredBirds) {
+  console.log(filteredBirds);
+  return filteredBirds
+    .map(
+      (bird) =>
+        `<div class="bird-card">
+					<figure class="bird-card-image-container">
+						<img class="bird-card-image" src="${bird.photo.source}" alt="${
+          bird.primary_name
+        }" />
+						<figcaption>
+							<h3>${bird.primary_name}</h3>
+							<div class="bird-card-image-credit">Photo by ${bird.photo.credit}</div>
+						</figcaption>
+					</figure>
+					<div class="bird-card-info">
+						<h3>${bird.english_name}</h3>
+						<div class="bird-card-extra-info">
+							<div><span class="bird-card-info-label">Scientific name:</span> <span class="bird-card-info-value">${
+                bird.scientific_name
+              }</span></div>
+							<div><span class="bird-card-info-label">Family:</span> <span class="bird-card-info-value">${
+                bird.family
+              }</span></div>
+							<div><span class="bird-card-info-label">Order:</span> <span class="bird-card-info-value">${
+                bird.order
+              }</span></div>
+							<div><span class="bird-card-info-label">Length:</span> <span class="bird-card-info-value">${
+                bird.size.length.value
+              }${bird.size.length.units}</span></div>
+							<div><span class="bird-card-info-label">Weight:</span> <span class="bird-card-info-value">${formatWeight(
+                bird.size.weight.value,
+                bird.size.weight.units
+              )}</span></div>
+						</div>
+						${getConservationStatusTagHTML(bird.status, true)}
+					</div>
+				</div>`
+    )
+    .join("\n");
 }

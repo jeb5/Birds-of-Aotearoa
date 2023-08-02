@@ -26,3 +26,8 @@ function getDayNumber() {
   return Math.floor(daysSinceEpoch);
 }
 export const DAY_NUMBER = getDayNumber();
+
+export function formatWeight(value, units) {
+  if (units === "g" && value > 1000) return `${value / 1000}kg`;
+  return `${value}${units}`;
+}
