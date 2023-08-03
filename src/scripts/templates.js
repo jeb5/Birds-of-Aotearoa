@@ -127,7 +127,6 @@ export function getSideHeaderHeroHTML() {
 }
 
 export function getGalleryHTML(filteredBirds) {
-  console.log(filteredBirds);
   return filteredBirds
     .map(
       (bird) =>

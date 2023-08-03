@@ -1,0 +1,11 @@
+stages:
+  - deploy  
+
+pages:
+  stage: deploy  # Set this new job to run in the `deploy` stage
+  script:
+    - mkdir public
+    - mv src/ public/
+  artifacts:
+    paths:
+      - "public/"

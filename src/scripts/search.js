@@ -77,5 +77,4 @@ function testBird(bird, normalizedQuery, conservationFilter) {
 function updateGallery(newBirds) {
   const gallery = document.getElementById("gallery");
   gallery.innerHTML = getGalleryHTML(newBirds);
-  console.log(getGalleryHTML(newBirds));
 }

@@ -1,4 +1,4 @@
-import { addBirdleListeners } from "./birdle.js";
+import { initializeBirdle } from "./birdle.js";
 import { loadBirds } from "./birds.js";
 import { performSearch } from "./search.js";
 import {
@@ -15,7 +15,7 @@ const searchFields = {
   sortOrder: document.getElementById("sort-order-field"),
 };
 
-let onSearchPage = false;
+let currentPage = null; // null, "main", "search"
 
 async function loadContent() {
   await loadBirds();
@@ -40,7 +40,7 @@ function setSideHeader(toHero) {
 const lastSearchData = {};
 function handleFieldUpdate() {
   if (searchFields.query.value.length > 0) openSearch();
-  else openMain();
+  else return openMain();
   const searchData = {
     query: searchFields.query.value,
     conservationFilter: searchFields.conservationStatus.value,
@@ -56,19 +56,19 @@ function handleFieldUpdate() {
 }
 
 function openSearch() {
-  if (onSearchPage) return;
+  if (currentPage == "search") return;
   loadSearchPage();
-  onSearchPage = true;
+  currentPage = "search";
 }
 function openMain() {
-  if (!onSearchPage) return;
+  if (currentPage === "main") return;
   loadMainPage();
-  onSearchPage = false;
+  currentPage = "main";
 }
 function loadMainPage() {
   setSideHeader(false);
   contentElement.innerHTML = getMainPageHTML();
-  addBirdleListeners();
+  initializeBirdle();
 }
 function loadSearchPage() {
   setSideHeader(true);
