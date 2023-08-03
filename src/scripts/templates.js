@@ -61,13 +61,13 @@ export function getBirdOTDHTML() {
 
 export function getBirdleHTML() {
   return `<div id="birdle-container" class="big-container">
-		<div id="birdle-top">
-			<div id="birdle-top-bar">
-				<h3 id="birdle-prompt">Pick the <strong>${
-          BIRDLE_DETAILS.birdleBird.primary_name
-        }</strong></h3>
-				<div id="birdle-guess-counter">Guess 1 / 5</div>
-			</div>
+		<div id="birdle-top-bar">
+			<h3 id="birdle-prompt">Pick the <strong>${
+        BIRDLE_DETAILS.birdleBird.primary_name
+      }</strong></h3>
+			<div id="birdle-guess-counter">Guess 1 / 5</div>
+		</div>
+		<div id="birdle-top" class="inset-1">
 				<div id="birdle-board">
 				${new Array(15)
           .fill(0)
