@@ -6,7 +6,15 @@ export let BOTD_DETAILS;
 export let BIRDLE_DETAILS;
 
 export async function loadBirds() {
-  const response = await fetch("./data/nzbird.json");
+  let response;
+  try {
+    response = await fetch("./data/nzbird.json");
+    if (!response.ok) throw new Error(response.statusText);
+  } catch (error) {
+    console.error(error);
+    alert("Failed to load birds. Please try again later.");
+    await new Promise(() => {});
+  }
   birds = await response.json();
   birdOrder = seededShuffle(birds, "arandomseed");
   BOTD_DETAILS = getBirdOTDDetails();

@@ -2,28 +2,32 @@ import { BOTD_DETAILS, conservationStatuses, BIRDLE_DETAILS } from "./birds.js";
 import { formatWeight } from "./utils.js";
 
 export function getMainPageHTML() {
-  return `<div id="welcome-page">
-		<header>
-			<img src="./icon.svg" alt="Birds of Aotearoa Kiwi Logo" />
-			<h1>Birds of Aotearoa</h1>
-		</header>
-		<main class="main-page">
-			<section>
-			<div class="section-header">
-				<h3>Bird of the day</h3>
-				<hr />
+  return `<main>
+		<div id="welcome-page">
+			<div id="welcome-page-contents">
+				<header>
+					<img src="./icon.svg" alt="Birds of Aotearoa Kiwi Logo" />
+					<h1>Birds of Aotearoa</h1>
+				</header>
+				<div class="main-page">
+					<section>
+					<div class="section-header">
+						<h3>Bird of the day</h3>
+						<hr />
+					</div>
+					${getBirdOTDHTML()}
+					</section>
+					<section>
+					<div class="section-header">
+						<h3>Play Birdle</h3>
+						<hr />
+					</div>
+					${getBirdleHTML()}
+					</section>
+				</div>
 			</div>
-			${getBirdOTDHTML()}
-			</section>
-			<section>
-			<div class="section-header">
-				<h3>Play Birdle</h3>
-				<hr />
-			</div>
-			${getBirdleHTML()}
-			</section>
-		</main>
-	</div>
+		</div>
+	</main>
 	`;
 }
 export function getBirdOTDHTML() {
@@ -111,18 +115,18 @@ function getConservationStatusTagHTML(conservationStatus, small = false) {
   }" style="--tag-color: ${csColor};">${conservationStatus}</div>`;
 }
 
-export function getSearchPageHTML() {
-  return `<div id="search-page">
-	<main id="gallery"></div>
-	</div>`;
+export function getGalleryPageHTML() {
+  return `<main>
+	<div id="gallery"></div>
+	</main>`;
 }
 
 export function getSideHeaderHeroHTML() {
   return `
-		<div id="side-header-hero">
+		<a href="" id="side-header-hero">
 			<img src="./icon.svg" alt="Birds of Aotearoa Kiwi Logo" />
 			<h2>Birds of Aotearoa</h2>
-		</div>
+		</a>
 	`;
 }
 

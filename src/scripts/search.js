@@ -59,7 +59,7 @@ const sortMethods = {
 };
 
 function testBird(bird, normalizedQuery, conservationFilter) {
-  if (conservationFilter !== bird.status && conservationFilter !== "any")
+  if (conservationFilter !== bird.status && conservationFilter !== "Any")
     return false;
   if (
     [

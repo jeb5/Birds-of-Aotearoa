@@ -8,71 +8,79 @@
     <link rel="stylesheet" href="styles/welcome-style.css" />
     <link rel="stylesheet" href="styles/gallery-style.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-		<script src="scripts/script.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="scripts/script.js" type="module"></script>
   </head>
-  <body style="opacity: 0;">
+  <body style="opacity: 0">
     <aside id="sidebar">
       <div id="side-header">
         <h2>Find a bird</h2>
       </div>
+      <div id="nav-buttons">
+        <button id="view-all-button">View all</button>
+        <button id="bird-search-button">Bird Search</button>
+      </div>
       <form id="side-fields">
-        <div>
+        <div id="search-field-div">
           <input
             id="search-field"
             type="text"
             placeholder="Search for a bird"
+            value=""
+            autocomplete="off"
           />
         </div>
         <div>
           <label for="conservation-status-field">Conservation status</label>
           <select id="conservation-status-field">
-            <option value="any">Any</option>
-            <option value="not-threatened">Not Threatened</option>
-            <option value="naturally-uncommon">Naturally Uncommon</option>
-            <option value="relict">Relict</option>
-            <option value="recovering">Recovering</option>
-            <option value="declining">Declining</option>
-            <option value="nationally-increasing">Nationally Increasing</option>
-            <option value="nationally-vulnerable">Nationally Vulnerable</option>
-            <option value="nationally-endangered">Nationally Endangered</option>
-            <option value="nationally-critical">Nationally Critical</option>
-            <option value="data-deficient">Data Deficient</option>
+            <option value="Any" selected>Any</option>
+            <option value="Not Threatened">Not Threatened</option>
+            <option value="Naturally Uncommon">Naturally Uncommon</option>
+            <option value="Relict">Relict</option>
+            <option value="Recovering">Recovering</option>
+            <option value="Declining">Declining</option>
+            <option value="Nationally Increasing">Nationally Increasing</option>
+            <option value="Nationally Vulnerable">Nationally Vulnerable</option>
+            <option value="Nationally Endangered">Nationally Endangered</option>
+            <option value="Nationally Critical">Nationally Critical</option>
+            <option value="Data Deficient">Data Deficient</option>
           </select>
         </div>
-				<div>
-					<label for="sort-by-field">Sort by</label>
-					<select id="sort-by-field">
-						<option value="primary_name" selected>M&#x101;ori Name</option>
-						<option value="english_name">English Name</option>
-						<option value="status">Conservation Status</option>
-						<option value="weight">Weight</option>
-						<option value="length">Length</option>
-						</select>
-				</div>
-				<div>
-					<label for="sort-order-field">Sort order</label>
-					<select id="sort-order-field">
-						<option value="ascending">Ascending</option>
-						<option value="descending">Descending</option>
-					</select>
-				</div>
+        <div>
+          <label for="sort-by-field">Sort by</label>
+          <select id="sort-by-field">
+            <option value="primary_name" selected>M&#x101;ori Name</option>
+            <option value="english_name">English Name</option>
+            <option value="status">Conservation Status</option>
+            <option value="weight">Weight</option>
+            <option value="length">Length</option>
+          </select>
+        </div>
+        <div>
+          <label for="sort-order-field">Sort order</label>
+          <select id="sort-order-field">
+            <option value="ascending" selected>Ascending</option>
+            <option value="descending">Descending</option>
+          </select>
+        </div>
       </form>
-    <footer>
-      <div>
-        Data licensed from
-        <a href="https://www.birdsnz.org.nz/">Birds New Zealand</a> for
-        educational use within the University of Otago.
-      </div>
-      <div>
-        Kiwi icon by
-        <a href="https://www.vecteezy.com/free-vector/kiwi">Vecteezy</a>.
-      </div>
-    </footer>
+      <footer>
+        <div>
+          Data licensed from
+          <a href="https://www.birdsnz.org.nz/">Birds New Zealand</a> for
+          educational use within the University of Otago.
+        </div>
+        <div>
+          Kiwi icon by
+          <a href="https://www.vecteezy.com/free-vector/kiwi">Vecteezy</a>.
+        </div>
+      </footer>
     </aside>
-		<div id="content">
-		</div>
+    <div id="content"></div>
   </body>
 </html>
