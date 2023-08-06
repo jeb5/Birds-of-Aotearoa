@@ -55,7 +55,7 @@ export function getBirdOTDHTML() {
 			${getConservationStatusTagHTML(BOTD_DETAILS.status)}
 		</div>
 		<figure class="botd-bird-figure">
-			<img class="botd-bird-image" src="${
+			<img class="botd-bird-image" src="data/gallery-images/${
         BOTD_DETAILS.photo.source
       }" alt="Bird of the day: ${BOTD_DETAILS.primary_name}" />
 			<figcaption>Photo by ${BOTD_DETAILS.photo.credit}</figcaption>
@@ -80,7 +80,9 @@ export function getBirdleHTML() {
             return `<div class="birdle-choice" data-birdname="${
               currBird.primary_name
             }">
-							<img src="${currBird.photo.source}" alt="Mystery Bird #${i + 1}"/>
+							<img loading="lazy" src="data/thumbnails/${
+                currBird.photo.source
+              }" alt="Mystery Bird #${i + 1}"/>
 						</div>`;
           })
           .join("\n")}
@@ -136,9 +138,9 @@ export function getGalleryHTML(filteredBirds) {
       (bird) =>
         `<div class="bird-card">
 					<figure class="bird-card-image-container">
-						<img class="bird-card-image" src="${bird.photo.source}" alt="${
-          bird.primary_name
-        }" />
+						<img loading="lazy" class="bird-card-image" src="data/gallery-images/${
+              bird.photo.source
+            }" alt="${bird.primary_name}" />
 						<figcaption>
 							<h3>${bird.primary_name}</h3>
 							<div class="bird-card-image-credit">Photo by ${bird.photo.credit}</div>
